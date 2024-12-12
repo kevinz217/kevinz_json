@@ -5,7 +5,7 @@ async function getUser(){
 }
 
 async function getComment() {
-    let response = await fetch('https://jsonplaceholder.typicode.com/comments/1')
+    let response = await fetch('https://jsonplaceholder.typicode.com/comments/')
     let j = await response.json()
     return j;
 }
@@ -19,6 +19,15 @@ async function getPost() {
 
 getUser()
     .then((json) => {
+        //creating a random post
+        postUser = document.createElement("div")
+        postUser.setAttribute("id", 'post-div')
+        postUser.innerHTML += JSON.stringify(json[Math.floor(Math.random() * 10)]);
+        mainContainer = document.getElementsByClassName("container")
+        console.log(mainContainer)
+        document.body.append(postUser)
+        mainContainer.innerHTML += postUser
+
         address = document.getElementById('address-div')
         for (let i = 0; i < 3; i++ ) {
             address.innerHTML += JSON.stringify(json[i].address)
@@ -27,15 +36,20 @@ getUser()
 
         users = document.getElementById('user-div')
         for (let i = 0; i < 3; i++ ) {
-            users.innerHTML += JSON.stringify(json[i])
+            users.innerHTML += JSON.stringify(json[i].username)
             users.innerHTML += "<br />"
         }
 })
 
 getComment() 
     .then((json) => {
-    comment1 = document.getElementById('comment1')
-    comment1.innerHTML += json.body
+        comment1 = document.getElementById('comment1')
+        comment1.innerHTML += JSON.stringify(json[Math.floor(Math.random() * 10)]);
+        comment = document.getElementById('comment-div')
+        for (let i = 0; i < 3; i++ ) {
+            comment.innerHTML += json[i].body
+            comment.innerHTML += "<br />"
+        }
 })
 
 getPost()

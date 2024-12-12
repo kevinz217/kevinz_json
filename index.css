@@ -13,8 +13,8 @@ body {
 }
 
 h1,h2,h3{
-    font-size: 3em;
-    text-shadow: 1px 1px #000000;
+    font-size: 50px;
+    text-shadow: -5px -5px 4px #000000;
     -webkit-text-stroke: 2px rgb(0, 0, 0);
 }
 
@@ -27,7 +27,7 @@ h1{
     column-gap: 5%;
 }
 
-#post-div,#address-div,#user-div{
+#post-div,#address-div,#user-div,#comment-div{
     display: inline-block;
     background: #2358de;
     border: 4px solid #000000;
@@ -36,6 +36,10 @@ h1{
     color:aliceblue;
     text-shadow: 1px 1px #000000;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+#reddit {
+    color: red;
 }
 
 .topnav {
